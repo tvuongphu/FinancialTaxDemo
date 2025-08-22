@@ -1,0 +1,26 @@
+﻿{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:28891",
+      "sslPort": 44342
+    }
+  },
+  "profiles": {
+    "GlobalTaxCalculation.Api": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "https://localhost:5129;http://localhost:7129",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "APPLICATIONINSIGHTS_CONNECTION_STRING": "InstrumentationKey=6c2c0eec-27d4-4502-a316-79300c87b7ca;IngestionEndpoint=https://australiasoutheast-0.in.applicationinsights.azure.com/;LiveEndpoint=https://australiasoutheast.livediagnostics.monitor.azure.com/",
+        "EnableDebugTools": "true",
+        "Persistence:SQLConnection": "Data Source=localhost;Initial Catalog=TaxDb;Integrated Security=True;TrustServerCertificate=True",
+      }
+    }
+  }
+}

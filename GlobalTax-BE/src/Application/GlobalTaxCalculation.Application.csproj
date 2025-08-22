@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <ProjectGuid>{B7E88334-63C7-4795-96DE-B790E5D63160}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="MediatR" Version="12.2.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
+        <PackageReference Include="Refit.HttpClientFactory" Version="7.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Domain\GlobalTaxCalculation.Domain.csproj" />
+    </ItemGroup>
+
+</Project>

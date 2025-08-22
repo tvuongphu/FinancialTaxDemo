@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <ProjectGuid>{857F3959-04B6-41E8-85BB-346C5514A0FA}</ProjectGuid>
+    </PropertyGroup>
+
+</Project>

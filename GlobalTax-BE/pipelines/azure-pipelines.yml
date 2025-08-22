@@ -1,0 +1,102 @@
+trigger:
+  - master
+
+resources:
+  repositories:
+    - repository: azdo-pipeline-nwl-templates
+      type: git
+      name: Module-Library/azdo-pipeline-nwl-templates
+      ref: refs/tags/v8.0.7
+
+name: $(Date:yyyyMMdd).$(Rev:rr)-$(SourceBranchName)
+
+pool:
+  name: AzureWindows
+
+parameters:
+  - name: forcePublish
+    type: boolean
+    default: false
+
+variables:
+  - name: artifactName
+    value: '$(projectName)-Artifact'
+  - name: scriptsArtifactName
+    value: '$(projectName)-Scripts'
+  - name: bedrock-workspace
+    value: 'globaltaxcalculations'                # Change me - App specific
+  - name: projectName
+    value: 'GlobalTaxCalculation'                # Change me - App specific
+  - name: allowPublish
+    value: $[ or(and(ne(variables['Build.Reason'], 'PullRequest'), eq(variables['Build.SourceBranch'], 'refs/heads/master')), ${{parameters.forcePublish}}) ]
+  - name: dotnetVersion
+    value: 8.x
+  - name: efVersion
+    value: 8.0.*
+
+stages:
+  - template: pipeline-templates/prep-scripts-stage.yaml@azdo-pipeline-nwl-templates
+    parameters:
+      stageName: prepscripts
+      scriptRepoName: azdo-pipeline-nwl-templates
+      scriptsArtifactName: $(scriptsArtifactName)
+  - template: pipeline-templates/build/dotnet-build-stage.yml@azdo-pipeline-nwl-templates
+    parameters:
+      stageName: ci
+      dependsOnStageName: prepscripts
+      output_path: '$(Build.BinariesDirectory)/$(projectName)'
+      artifact_name: $(artifactName)
+      project_path: '$(Build.SourcesDirectory)/src/Api/$(projectName).Api.csproj'
+      test_project_path: '**/*Tests.@(Unit|Architectural).csproj'
+      dotnet_version: $(dotnetVersion)
+      sonarqube_project_name: <sonarqubeProjectName>                             # Change me - App specific
+      sonarqube_service_connection: 'SQE-Application-Resources-architecture'     # Change me - AzDo Project specific
+      ef_project_context_names:
+        - 'GlobalTaxCalculationDbContext'
+      ef_project_path: '$(Build.SourcesDirectory)/src/Persistence/$(projectName).Persistence.csproj'
+      ef_version: $(efVersion)
+      allow_publish: variables.allowPublish
+  - template: pipeline-templates/deploy/deploy-app-service-stage.yml@azdo-pipeline-nwl-templates
+    parameters:
+      stageName: dev
+      dependsOnStageName: ci
+      appType: webAppLinux
+      allowDeploy: variables.allowPublish
+      environmentName: '$(bedrock-workspace) - dev'
+      serviceConnection: 'ws-svc-architecture-dev-nonprod-asset-maintenance'     # Change me - App specific
+      appName: 'app-aue-npdsi-$(bedrock-workspace)-01'
+      slotName: staging-01
+      projectName: $(projectName)
+      artifactName: $(artifactName)
+      packageName: $(projectName)
+      resourceGroupName: 'arg-aue-npdsi-$(bedrock-workspace)-01'
+      scriptsArtifactName: $(scriptsArtifactName)
+      healthRoute: 'health'
+      efProjectContextNames:
+        - 'GlobalTaxCalculationDbContext'
+      dotnetVersion: $(dotnetVersion)
+      efVersion: $(efVersion)
+      dbConnectionString: 'Server=tcp:sql-aue-npdsi-$(bedrock-workspace)-01.database.windows.net,1433;Database=sqldb-aue-npdsi-$(bedrock-workspace)-01;User ID=ws-spn-dev-application-resources-shared-$(bedrock-workspace)-dev;Authentication=Active Directory Default;TrustServerCertificate=True;Connect Timeout=180' # Change me - App specific
+      postDeployGitTag: dev-$(Build.BuildNumber)
+  - template: pipeline-templates/deploy/deploy-app-service-stage.yml@azdo-pipeline-nwl-templates
+    parameters:
+      stageName: uat
+      dependsOnStageName: dev
+      appType: webAppLinux
+      allowDeploy: variables.allowPublish
+      environmentName: '$(bedrock-workspace) - uat'
+      serviceConnection: 'ws-svc-architecture-uat-prod-asset-maintenance'        # Change me - App specific
+      appName: 'app-aue-prusi-$(bedrock-workspace)-01'
+      slotName: staging-01
+      projectName: $(projectName)
+      artifactName: $(artifactName)
+      packageName: $(projectName)
+      resourceGroupName: 'arg-aue-prusi-$(bedrock-workspace)-01'
+      scriptsArtifactName: $(scriptsArtifactName)
+      healthRoute: 'health'
+      efProjectContextNames:
+        - 'GlobalTaxCalculationDbContext'
+      dotnetVersion: $(dotnetVersion)
+      efVersion: $(efVersion)
+      dbConnectionString: 'Server=tcp:sql-aue-prusi-$(bedrock-workspace)-01.database.windows.net,1433;Database=sqldb-aue-prusi-$(bedrock-workspace)-01;User ID=ws-spn-uat-application-resources-shared-$(bedrock-workspace)-uat;Authentication=Active Directory Default;TrustServerCertificate=True;Connect Timeout=180' # Change me - App specific
+      postDeployGitTag: uat-$(Build.BuildNumber)
