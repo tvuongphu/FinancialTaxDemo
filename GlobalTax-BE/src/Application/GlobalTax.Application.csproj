@@ -15,7 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Domain\GlobalTaxCalculation.Domain.csproj" />
+        <ProjectReference Include="..\Domain\GlobalTax.Domain.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
-using GlobalTaxCalculation.Domain;
+using GlobalTax.Domain;
 
-namespace GlobalTaxCalculation.Application.Models;
+namespace GlobalTax.Application.Models;
 
 // Tax
 public record ValidationResponseDto(bool? Success, List<string> Response);

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using GlobalTaxCalculation.Application.Interfaces;
+using GlobalTax.Application.Interfaces;
 
-namespace GlobalTaxCalculation.Persistence;
+namespace GlobalTax.Persistence;
 
 public class TaxDbContext : DbContext, ITaxDbContext
 {

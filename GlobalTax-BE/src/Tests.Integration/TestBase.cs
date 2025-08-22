@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 using Refit;
 using Xunit.Abstractions;
 
-namespace GlobalTaxCalculation.Tests.Integration;
+namespace GlobalTax.Tests.Integration;
 
 public class TestBase
 {

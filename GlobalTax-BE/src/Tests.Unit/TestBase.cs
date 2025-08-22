@@ -1,12 +1,12 @@
-﻿using GlobalTaxCalculation.Application.Interfaces;
+﻿using GlobalTax.Application.Interfaces;
 
-namespace GlobalTaxCalculation.Tests.Unit;
+namespace GlobalTax.Tests.Unit;
 
 public class TestBase
 {
     protected readonly ITaxDbContext _dbContext;
     protected TestBase()
     {
-        _dbContext = new GlobalTaxCalculationTestDbContext();
+        _dbContext = new GlobalTaxTestDbContext();
     }
 }

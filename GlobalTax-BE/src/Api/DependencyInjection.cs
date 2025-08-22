@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using GlobalTaxCalculation.Api.HealthCheck;
+using GlobalTax.Api.HealthCheck;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace GlobalTaxCalculation.Api;
+namespace GlobalTax.Api;
 
 public static class DependencyInjection
 {   
@@ -51,7 +51,7 @@ public static class DependencyInjection
         services.AddAuthorizationBuilder();
 
         //services.AddScoped<AuthenticatedUserService>();
-        //services.AddValidatorsFromAssemblyContaining<GlobalTaxCalculationDtoValidator>();
+        //services.AddValidatorsFromAssemblyContaining<GlobalTaxDtoValidator>();
 
         services.AddInternalHealthChecks();
 

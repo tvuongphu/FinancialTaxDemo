@@ -24,7 +24,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Infrastructure\GlobalTaxCalculation.Infrastructure.csproj" />
+      <ProjectReference Include="..\Infrastructure\GlobalTax.Infrastructure.csproj" />
     </ItemGroup>
 
     <ItemGroup>

@@ -1,24 +1,24 @@
 ﻿using System.Threading.Tasks;
 using AutoFixture;
 using Moq;
-//using GlobalTaxCalculation.Application.Commands;
-using GlobalTaxCalculation.Application.Interfaces;
+//using GlobalTax.Application.Commands;
+using GlobalTax.Application.Interfaces;
 using Xunit;
 
-namespace GlobalTaxCalculation.Tests.Unit.Application.Commands;
+namespace GlobalTax.Tests.Unit.Application.Commands;
 
-public class ProcessGlobalTaxCalculationCommandTest
+public class ProcessGlobalTaxCommandTest
     : TestBase
 {
     //private readonly IFixture _fixture;
-    //private readonly ProcessGlobalTaxCalculationHandler _handler;
-    //private readonly Mock<IGlobalTaxCalculationService> _mockService;
+    //private readonly ProcessGlobalTaxHandler _handler;
+    //private readonly Mock<IGlobalTaxService> _mockService;
 
-    //public ProcessGlobalTaxCalculationCommandTest()
+    //public ProcessGlobalTaxCommandTest()
     //{
     //    _fixture = new Fixture().Customize(new BaseFixture());
-    //    _mockService = new Mock<IGlobalTaxCalculationService>();
-    //    _handler = new ProcessGlobalTaxCalculationHandler(
+    //    _mockService = new Mock<IGlobalTaxService>();
+    //    _handler = new ProcessGlobalTaxHandler(
     //        _dbContext,
     //        _mockService.Object
     //    );
@@ -29,7 +29,7 @@ public class ProcessGlobalTaxCalculationCommandTest
     //{
     //    // Arrange
     //    // Act
-    //    var handler = new ProcessGlobalTaxCalculationHandler(
+    //    var handler = new ProcessGlobalTaxHandler(
     //        _dbContext,
     //        _mockService.Object
     //    );
@@ -39,20 +39,20 @@ public class ProcessGlobalTaxCalculationCommandTest
     //}
 
     //[Fact]
-    //public async Task CreateGlobalTaxCalculation_InputValid_SaveSucess()
+    //public async Task CreateGlobalTax_InputValid_SaveSucess()
     //{
     //    // Arrange
-    //    var globaltaxcalculation = _fixture.Build<Domain.GlobalTaxCalculation>().Create();
-    //    var globaltaxcalculationModel = _fixture.Build<GlobalTaxCalculation.Application.Models.GlobalTaxCalculationDto>()
-    //        .With(m => m.Property, globaltaxcalculation.Property)
+    //    var GlobalTax = _fixture.Build<Domain.GlobalTax>().Create();
+    //    var GlobalTaxModel = _fixture.Build<GlobalTax.Application.Models.GlobalTaxDto>()
+    //        .With(m => m.Property, GlobalTax.Property)
     //        .Create();
 
-    //    var command = _fixture.Build<ProcessGlobalTaxCalculationCommand>()
-    //        .With(x => x.GlobalTaxCalculation, globaltaxcalculationModel)
+    //    var command = _fixture.Build<ProcessGlobalTaxCommand>()
+    //        .With(x => x.GlobalTax, GlobalTaxModel)
     //        .Create();
 
     //    await _handler.Handle(command, default);
 
-    //    Assert.All(_dbContext.GlobalTaxCalculations, globaltaxcalculationFromDb => Assert.Equal(globaltaxcalculation.Property, globaltaxcalculationFromDb.Property));
+    //    Assert.All(_dbContext.GlobalTaxs, GlobalTaxFromDb => Assert.Equal(GlobalTax.Property, GlobalTaxFromDb.Property));
     //}
 }

@@ -1,8 +1,8 @@
-﻿using GlobalTaxCalculation.Domain;
+﻿using GlobalTax.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace GlobalTaxCalculation.Persistence.Configurations;
+namespace GlobalTax.Persistence.Configurations;
 
 public class CountryConfigurations : IEntityTypeConfiguration<Domain.Country>
 {

@@ -1,14 +1,14 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using GlobalTaxCalculation.Application.Interfaces;
-using GlobalTaxCalculation.Infrastructure.Services;
+using GlobalTax.Application.Interfaces;
+using GlobalTax.Infrastructure.Services;
 using Polly;
 using Polly.Contrib.WaitAndRetry;
 using Polly.Extensions.Http;
 using Polly.Registry;
 using Polly.Retry;
 
-namespace GlobalTaxCalculation.Infrastructure;
+namespace GlobalTax.Infrastructure;
 
 public static class DependencyInjection
 {

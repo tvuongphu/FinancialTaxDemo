@@ -1,4 +1,4 @@
-﻿namespace GlobalTaxCalculation.Persistence;
+﻿namespace GlobalTax.Persistence;
 
 public class PersistenceOptions
 {

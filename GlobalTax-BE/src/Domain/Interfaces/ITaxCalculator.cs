@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GlobalTaxCalculation.Domain.Interfaces
+namespace GlobalTax.Domain.Interfaces
 {
     internal interface ITaxCalculator
     {

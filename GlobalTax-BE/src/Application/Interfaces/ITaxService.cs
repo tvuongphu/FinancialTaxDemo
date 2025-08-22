@@ -1,7 +1,7 @@
-﻿using GlobalTaxCalculation.Application.Models;
-using GlobalTaxCalculation.Domain;
+﻿using GlobalTax.Application.Models;
+using GlobalTax.Domain;
 
-namespace GlobalTaxCalculation.Application.Interfaces;
+namespace GlobalTax.Application.Interfaces;
 
 public interface ITaxService
 {   

@@ -1,8 +1,8 @@
-using GlobalTaxCalculation.Api;
-using GlobalTaxCalculation.Api.HealthCheck;
-using GlobalTaxCalculation.Application;
-using GlobalTaxCalculation.Infrastructure;
-using GlobalTaxCalculation.Persistence;
+using GlobalTax.Api;
+using GlobalTax.Api.HealthCheck;
+using GlobalTax.Application;
+using GlobalTax.Infrastructure;
+using GlobalTax.Persistence;
 using Serilog;
 
 Log.Logger = new LoggerConfiguration()
@@ -55,7 +55,7 @@ try
             foreach (var groupName in app.DescribeApiVersions().Select(description => description.GroupName))
             {
                 c.SwaggerEndpoint($"/swagger/{groupName}/swagger.json",
-                    $"GlobalTaxCalculation API {groupName.ToUpper()}");
+                    $"GlobalTax API {groupName.ToUpper()}");
             }
         });
     }

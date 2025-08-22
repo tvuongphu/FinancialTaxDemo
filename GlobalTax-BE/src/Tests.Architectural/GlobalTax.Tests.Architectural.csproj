@@ -23,11 +23,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Application\GlobalTaxCalculation.Application.csproj" />
-    <ProjectReference Include="..\Domain\GlobalTaxCalculation.Domain.csproj" />
-    <ProjectReference Include="..\Infrastructure\GlobalTaxCalculation.Infrastructure.csproj" />
-    <ProjectReference Include="..\Api\GlobalTaxCalculation.Api.csproj" />
-    <ProjectReference Include="..\Persistence\GlobalTaxCalculation.Persistence.csproj" />
+    <ProjectReference Include="..\Application\GlobalTax.Application.csproj" />
+    <ProjectReference Include="..\Domain\GlobalTax.Domain.csproj" />
+    <ProjectReference Include="..\Infrastructure\GlobalTax.Infrastructure.csproj" />
+    <ProjectReference Include="..\Api\GlobalTax.Api.csproj" />
+    <ProjectReference Include="..\Persistence\GlobalTax.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

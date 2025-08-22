@@ -1,8 +1,8 @@
 ﻿using System.Reflection;
-using GlobalTaxCalculation.Application;
+using GlobalTax.Application;
 using NetArchTest.Rules;
 
-namespace GlobalTaxCalculation.Tests.Architectural
+namespace GlobalTax.Tests.Architectural
 {
     public class ApplicationLayerTest
     {
@@ -14,7 +14,7 @@ namespace GlobalTaxCalculation.Tests.Architectural
             var result = Types
                 .InAssembly(ApplicationAssembly)
                 .ShouldNot()
-                .HaveDependencyOnAny("GlobalTaxCalculation.Api", "GlobalTaxCalculation.Infrastructure", "GlobalTaxCalculation.Persistence")
+                .HaveDependencyOnAny("GlobalTax.Api", "GlobalTax.Infrastructure", "GlobalTax.Persistence")
                 .GetResult();
 
             Assert.True(result.IsSuccessful, "Application Project must reference only Domain.");

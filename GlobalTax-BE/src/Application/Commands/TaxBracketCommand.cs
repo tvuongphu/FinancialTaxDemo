@@ -1,9 +1,9 @@
 ﻿using MediatR;
-using GlobalTaxCalculation.Application.Interfaces;
-using GlobalTaxCalculation.Domain;
-using GlobalTaxCalculation.Application.Models;
+using GlobalTax.Application.Interfaces;
+using GlobalTax.Domain;
+using GlobalTax.Application.Models;
 
-namespace GlobalTaxCalculation.Application.Commands;
+namespace GlobalTax.Application.Commands;
 
 public record TaxBracketCommand(string countryCode, List<TaxBracketDetail> taxBracketDetail) : IRequest<UpdateBracketResponseDto>;
 

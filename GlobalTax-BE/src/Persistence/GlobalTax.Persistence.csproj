@@ -22,7 +22,7 @@
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />     
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\Application\GlobalTaxCalculation.Application.csproj" />
+        <ProjectReference Include="..\Application\GlobalTax.Application.csproj" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="Migrations\" />

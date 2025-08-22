@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GlobalTaxCalculation.Domain;
+namespace GlobalTax.Domain;
 
 public class Country
 {

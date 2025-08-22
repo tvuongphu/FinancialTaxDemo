@@ -1,6 +1,6 @@
-using GlobalTaxCalculation.Domain;
+using GlobalTax.Domain;
 
-namespace GlobalTaxCalculation.Application.Models;
+namespace GlobalTax.Application.Models;
 
 public class TaxDetailDto
 {

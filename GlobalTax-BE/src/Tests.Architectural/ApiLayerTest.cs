@@ -1,9 +1,9 @@
 ﻿using System.Reflection;
-using GlobalTaxCalculation.Api;
-using GlobalTaxCalculation.Api.V1.Controllers;
+using GlobalTax.Api;
+using GlobalTax.Api.V1.Controllers;
 using NetArchTest.Rules;
 
-namespace GlobalTaxCalculation.Tests.Architectural;
+namespace GlobalTax.Tests.Architectural;
 
 public class ApiLayerTest
 {
@@ -14,9 +14,9 @@ public class ApiLayerTest
     {
         var result = Types
             .InAssembly(ApiAssembly)
-            .That().ResideInNamespace("GlobalTaxCalculation.Api.V[1-9].Controllers")
+            .That().ResideInNamespace("GlobalTax.Api.V[1-9].Controllers")
             .ShouldNot()
-            .HaveDependencyOnAny("GlobalTaxCalculation.Infrastructure", "GlobalTaxCalculation.Persistence", "GlobalTaxCalculation.Application.Interfaces")
+            .HaveDependencyOnAny("GlobalTax.Infrastructure", "GlobalTax.Persistence", "GlobalTax.Application.Interfaces")
             .GetResult();
         Assert.True(result.IsSuccessful, "API Controller must only have reference to Application Project.");
     }

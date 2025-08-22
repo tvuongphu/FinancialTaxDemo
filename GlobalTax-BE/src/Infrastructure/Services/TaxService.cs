@@ -1,9 +1,9 @@
-﻿using GlobalTaxCalculation.Application.Interfaces;
-using GlobalTaxCalculation.Application.Models;
-using GlobalTaxCalculation.Domain;
+﻿using GlobalTax.Application.Interfaces;
+using GlobalTax.Application.Models;
+using GlobalTax.Domain;
 using System.Text.Json;
 
-namespace GlobalTaxCalculation.Infrastructure.Services;
+namespace GlobalTax.Infrastructure.Services;
 
 public class TaxService : ITaxService
 {

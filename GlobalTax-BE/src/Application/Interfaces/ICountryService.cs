@@ -1,6 +1,6 @@
-﻿using GlobalTaxCalculation.Application.Models;
+﻿using GlobalTax.Application.Models;
 
-namespace GlobalTaxCalculation.Application.Interfaces;
+namespace GlobalTax.Application.Interfaces;
 
 public interface ICountryService
 {   

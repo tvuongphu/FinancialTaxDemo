@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using GlobalTaxCalculation.Application.Queries;
-using GlobalTaxCalculation.Application.Commands;
+using GlobalTax.Application.Queries;
+using GlobalTax.Application.Commands;
 
-namespace GlobalTaxCalculation.Application;
+namespace GlobalTax.Application;
 
 public static class DependencyInjection
 {

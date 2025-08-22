@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-namespace GlobalTaxCalculation.Application.Interfaces;
+namespace GlobalTax.Application.Interfaces;
 
 public interface ITaxDbContext
 {

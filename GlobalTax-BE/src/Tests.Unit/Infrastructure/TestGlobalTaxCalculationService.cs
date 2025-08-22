@@ -1,18 +1,17 @@
 ﻿using System.Threading.Tasks;
 using Moq;
-using GlobalTaxCalculation.Application.Interfaces;
-using GlobalTaxCalculation.Application.Models;
-using GlobalTaxCalculation.Infrastructure.ApiClients.DownstreamMicroservice;
-using GlobalTaxCalculation.Infrastructure.Services;
+using GlobalTax.Application.Interfaces;
+using GlobalTax.Application.Models;
+using GlobalTax.Infrastructure.Services;
 using Xunit;
 
-namespace GlobalTaxCalculation.Tests.Unit.Infrastructure;
+namespace GlobalTax.Tests.Unit.Infrastructure;
 
-public class TestGlobalTaxCalculationService
+public class TestGlobalTaxService
 {
     //private readonly Mock<IApiClient> mockApiClient = new(MockBehavior.Strict);
 
-    //private IGlobalTaxCalculationService Sut => new GlobalTaxCalculationService(mockApiClient.Object);
+    //private IGlobalTaxService Sut => new GlobalTaxService(mockApiClient.Object);
 
     //[Fact]
     //public async Task TestGetAssetByAssetCode_RetrievesFromAsset()
@@ -25,7 +24,7 @@ public class TestGlobalTaxCalculationService
     //        .ReturnsAsync(1)
     //        .Verifiable();
 
-    //    await Sut.SomeService(new GlobalTaxCalculationDto(property, anotherProperty));
+    //    await Sut.SomeService(new GlobalTaxDto(property, anotherProperty));
 
     //    mockApiClient.Verify(a=> a.PostDownstreamDataAsync(new RequestDto(property, anotherProperty)), Times.Once);
     //}

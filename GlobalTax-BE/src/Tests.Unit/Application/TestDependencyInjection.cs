@@ -4,10 +4,10 @@ using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using GlobalTaxCalculation.Application;
+using GlobalTax.Application;
 using Xunit;
 
-namespace GlobalTaxCalculation.Tests.Unit.Application;
+namespace GlobalTax.Tests.Unit.Application;
 
 public class TestDependencyInjection
 {

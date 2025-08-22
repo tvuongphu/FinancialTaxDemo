@@ -1,8 +1,8 @@
 ﻿using System.Reflection;
-using GlobalTaxCalculation.Persistence;
+using GlobalTax.Persistence;
 using NetArchTest.Rules;
 
-namespace GlobalTaxCalculation.Tests.Architectural
+namespace GlobalTax.Tests.Architectural
 {
     public class PersistenceTest
     {
@@ -14,7 +14,7 @@ namespace GlobalTaxCalculation.Tests.Architectural
             var result = Types
                 .InAssembly(PersistenceAssembly)
                 .ShouldNot()
-                .HaveDependencyOnAny("GlobalTaxCalculation.Api", "GlobalTaxCalculation.Infrastructure")
+                .HaveDependencyOnAny("GlobalTax.Api", "GlobalTax.Infrastructure")
                 .GetResult();
 
             Assert.True(result.IsSuccessful, "Persistence Project must not reference Api or Infrastructure projects.");

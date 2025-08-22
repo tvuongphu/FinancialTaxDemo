@@ -3,23 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlobalTaxCalculation.Application", "Application\GlobalTaxCalculation.Application.csproj", "{47FDEF20-97C7-4032-902C-F6275B1985AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlobalTax.Application", "Application\GlobalTax.Application.csproj", "{47FDEF20-97C7-4032-902C-F6275B1985AF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlobalTaxCalculation.Domain", "Domain\GlobalTaxCalculation.Domain.csproj", "{6C2FA5F5-6D63-4C7E-8E9C-DE35ADA56AF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlobalTax.Domain", "Domain\GlobalTax.Domain.csproj", "{6C2FA5F5-6D63-4C7E-8E9C-DE35ADA56AF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalTaxCalculation.Api", "Api\GlobalTaxCalculation.Api.csproj", "{8D23AA8D-90CC-40EF-8045-B9A8D4C675CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalTax.Api", "Api\GlobalTax.Api.csproj", "{8D23AA8D-90CC-40EF-8045-B9A8D4C675CC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F7564CA3-AB7A-44A1-8403-3C8E836D766E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlobalTaxCalculation.Tests.Unit", "Tests.Unit\GlobalTaxCalculation.Tests.Unit.csproj", "{24C7D413-AFF2-409C-A70D-1928D409951A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlobalTax.Tests.Unit", "Tests.Unit\GlobalTax.Tests.Unit.csproj", "{24C7D413-AFF2-409C-A70D-1928D409951A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalTaxCalculation.Tests.Integration", "Tests.Integration\GlobalTaxCalculation.Tests.Integration.csproj", "{4BE15320-6AE6-4BA9-A31F-9C9E3F648378}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalTax.Tests.Integration", "Tests.Integration\GlobalTax.Tests.Integration.csproj", "{4BE15320-6AE6-4BA9-A31F-9C9E3F648378}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlobalTaxCalculation.Infrastructure", "Infrastructure\GlobalTaxCalculation.Infrastructure.csproj", "{42414343-BDED-4902-BA7C-46C5C7B835C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlobalTax.Infrastructure", "Infrastructure\GlobalTax.Infrastructure.csproj", "{42414343-BDED-4902-BA7C-46C5C7B835C6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlobalTaxCalculation.Persistence", "Persistence\GlobalTaxCalculation.Persistence.csproj", "{47C0D883-FC9B-428A-A3F9-022C70AA12DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlobalTax.Persistence", "Persistence\GlobalTax.Persistence.csproj", "{47C0D883-FC9B-428A-A3F9-022C70AA12DF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlobalTaxCalculation.Tests.Architectural", "Tests.Architectural\GlobalTaxCalculation.Tests.Architectural.csproj", "{44A07CD1-9FDF-4428-8A1A-1544E77A673C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlobalTax.Tests.Architectural", "Tests.Architectural\GlobalTax.Tests.Architectural.csproj", "{44A07CD1-9FDF-4428-8A1A-1544E77A673C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{DCE381F2-7159-4D4D-B337-4FD360D4D8CE}"
 	ProjectSection(SolutionItems) = preProject

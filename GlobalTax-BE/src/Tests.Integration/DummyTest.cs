@@ -1,6 +1,6 @@
 ﻿using Xunit.Abstractions;
 
-namespace GlobalTaxCalculation.Tests.Integration;
+namespace GlobalTax.Tests.Integration;
 
 public class DummyTest(ITestOutputHelper output) : TestBase(output)
 {

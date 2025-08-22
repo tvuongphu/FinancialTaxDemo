@@ -4,7 +4,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace GlobalTaxCalculation.Api;
+namespace GlobalTax.Api;
 
 public class ConfigureSwaggerOptions(IApiVersionDescriptionProvider provider) : IConfigureOptions<SwaggerGenOptions>
 {
@@ -15,8 +15,8 @@ public class ConfigureSwaggerOptions(IApiVersionDescriptionProvider provider) : 
             options.SwaggerDoc(description.GroupName, new OpenApiInfo
             {
                 Version = description.ApiVersion.ToString(),
-                Title = "OpenAPI Document on GlobalTaxCalculation",
-                Description = "HTTP APIs that run on GlobalTaxCalculation microservice using OpenAPI specification."
+                Title = "OpenAPI Document on GlobalTax",
+                Description = "HTTP APIs that run on GlobalTax microservice using OpenAPI specification."
             });
         }
 

@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using GlobalTaxCalculation.Application.Interfaces;
-using GlobalTaxCalculation.Application.Models;
+using GlobalTax.Application.Interfaces;
+using GlobalTax.Application.Models;
 
-namespace GlobalTaxCalculation.Application.Queries;
+namespace GlobalTax.Application.Queries;
 
 public record GetAllCountryQuery() : IRequest<GetCountryResponseDto>;
 

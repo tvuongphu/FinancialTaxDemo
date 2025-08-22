@@ -1,5 +1,5 @@
 ﻿
-namespace GlobalTaxCalculation.Domain;
+namespace GlobalTax.Domain;
 
 public class TaxMaxLimit
 {

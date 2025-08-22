@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GlobalTaxCalculation.Api.V1.Controllers;
+namespace GlobalTax.Api.V1.Controllers;
 
 [ApiController]
 //[Authorize]

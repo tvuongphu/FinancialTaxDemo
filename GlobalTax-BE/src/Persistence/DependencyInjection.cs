@@ -2,9 +2,9 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using GlobalTaxCalculation.Application.Interfaces;
+using GlobalTax.Application.Interfaces;
 
-namespace GlobalTaxCalculation.Persistence;
+namespace GlobalTax.Persistence;
 
 public static class DependencyInjection
 {
@@ -15,7 +15,7 @@ public static class DependencyInjection
 
         AddDatabase(services, opt.Value);
         services.AddTransient<ITaxDbContext>(provider =>
-            provider.GetService<TaxDbContext>() ?? throw new InvalidOperationException("GlobalTaxCalculationDbContext is null"));
+            provider.GetService<TaxDbContext>() ?? throw new InvalidOperationException("GlobalTaxDbContext is null"));
     }
 
     private static void ConfigurePersistenceOptions(IServiceCollection services, IConfiguration configuration)

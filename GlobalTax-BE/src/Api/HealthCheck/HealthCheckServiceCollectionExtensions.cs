@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
-namespace GlobalTaxCalculation.Api.HealthCheck;
+namespace GlobalTax.Api.HealthCheck;
 
 public static class HealthCheckServiceCollectionExtensions
 {

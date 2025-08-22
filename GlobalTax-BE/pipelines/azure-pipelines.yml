@@ -24,9 +24,9 @@ variables:
   - name: scriptsArtifactName
     value: '$(projectName)-Scripts'
   - name: bedrock-workspace
-    value: 'globaltaxcalculations'                # Change me - App specific
+    value: 'GlobalTaxs'                # Change me - App specific
   - name: projectName
-    value: 'GlobalTaxCalculation'                # Change me - App specific
+    value: 'GlobalTax'                # Change me - App specific
   - name: allowPublish
     value: $[ or(and(ne(variables['Build.Reason'], 'PullRequest'), eq(variables['Build.SourceBranch'], 'refs/heads/master')), ${{parameters.forcePublish}}) ]
   - name: dotnetVersion
@@ -52,7 +52,7 @@ stages:
       sonarqube_project_name: <sonarqubeProjectName>                             # Change me - App specific
       sonarqube_service_connection: 'SQE-Application-Resources-architecture'     # Change me - AzDo Project specific
       ef_project_context_names:
-        - 'GlobalTaxCalculationDbContext'
+        - 'GlobalTaxDbContext'
       ef_project_path: '$(Build.SourcesDirectory)/src/Persistence/$(projectName).Persistence.csproj'
       ef_version: $(efVersion)
       allow_publish: variables.allowPublish
@@ -73,7 +73,7 @@ stages:
       scriptsArtifactName: $(scriptsArtifactName)
       healthRoute: 'health'
       efProjectContextNames:
-        - 'GlobalTaxCalculationDbContext'
+        - 'GlobalTaxDbContext'
       dotnetVersion: $(dotnetVersion)
       efVersion: $(efVersion)
       dbConnectionString: 'Server=tcp:sql-aue-npdsi-$(bedrock-workspace)-01.database.windows.net,1433;Database=sqldb-aue-npdsi-$(bedrock-workspace)-01;User ID=ws-spn-dev-application-resources-shared-$(bedrock-workspace)-dev;Authentication=Active Directory Default;TrustServerCertificate=True;Connect Timeout=180' # Change me - App specific
@@ -95,7 +95,7 @@ stages:
       scriptsArtifactName: $(scriptsArtifactName)
       healthRoute: 'health'
       efProjectContextNames:
-        - 'GlobalTaxCalculationDbContext'
+        - 'GlobalTaxDbContext'
       dotnetVersion: $(dotnetVersion)
       efVersion: $(efVersion)
       dbConnectionString: 'Server=tcp:sql-aue-prusi-$(bedrock-workspace)-01.database.windows.net,1433;Database=sqldb-aue-prusi-$(bedrock-workspace)-01;User ID=ws-spn-uat-application-resources-shared-$(bedrock-workspace)-uat;Authentication=Active Directory Default;TrustServerCertificate=True;Connect Timeout=180' # Change me - App specific

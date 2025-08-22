@@ -4,7 +4,7 @@
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace GlobalTaxCalculation.Persistence.Migrations
+namespace GlobalTax.Persistence.Migrations
 {
     /// <inheritdoc />
     public partial class Init : Migration

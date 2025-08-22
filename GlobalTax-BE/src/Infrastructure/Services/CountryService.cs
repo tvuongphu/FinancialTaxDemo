@@ -1,7 +1,7 @@
-﻿using GlobalTaxCalculation.Application.Interfaces;
-using GlobalTaxCalculation.Application.Models;
+﻿using GlobalTax.Application.Interfaces;
+using GlobalTax.Application.Models;
 
-namespace GlobalTaxCalculation.Infrastructure.Services;
+namespace GlobalTax.Infrastructure.Services;
 
 public class CountryService(ITaxDbContext TaxDbContext) : ICountryService
 {

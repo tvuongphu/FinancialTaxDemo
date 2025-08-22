@@ -1,10 +1,10 @@
 ﻿using Asp.Versioning;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using GlobalTaxCalculation.Application.Models;
-using GlobalTaxCalculation.Application.Queries;
+using GlobalTax.Application.Models;
+using GlobalTax.Application.Queries;
 
-namespace GlobalTaxCalculation.Api.V1.Controllers;
+namespace GlobalTax.Api.V1.Controllers;
 
 [ApiVersion(1.0)]
 public class CountryController(IMediator mediator) : NwController

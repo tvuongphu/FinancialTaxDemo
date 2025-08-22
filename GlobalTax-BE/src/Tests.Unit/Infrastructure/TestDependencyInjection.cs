@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using GlobalTaxCalculation.Infrastructure;
+using GlobalTax.Infrastructure;
 using Xunit;
 
-namespace GlobalTaxCalculation.Tests.Unit.Infrastructure;
+namespace GlobalTax.Tests.Unit.Infrastructure;
 
 public class TestDependencyInjection
 {

@@ -2,7 +2,7 @@
 using AutoFixture;
 using AutoFixture.AutoMoq;
 
-namespace GlobalTaxCalculation.Tests.Unit;
+namespace GlobalTax.Tests.Unit;
 
 public class BaseFixture : ICustomization
 {

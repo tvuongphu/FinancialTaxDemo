@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "GlobalTaxCalculation.Api": {
+    "GlobalTax.Api": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
