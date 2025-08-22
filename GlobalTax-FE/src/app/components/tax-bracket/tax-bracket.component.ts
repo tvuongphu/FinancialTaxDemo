@@ -16,7 +16,10 @@ import { firstValueFrom } from 'rxjs';
 
 export class TaxBracketFormComponent {
   form: FormGroup;
+  isEditable: boolean = true;
   countries: Country[] = [];
+  errorMessages: string[] = [];
+  isError: boolean = false;
   submitted = false;
  
   constructor(private fb: FormBuilder, private apiClientService: ApiClientService) {
@@ -26,14 +29,15 @@ export class TaxBracketFormComponent {
         this.fb.group({
           level: [null, Validators.required],
           limit: [null, Validators.required],
-          rate: [null, [Validators.required, Validators.min(0), Validators.max(1)]]
+          rate: [null, [Validators.required, Validators.min(0), Validators.max(1)]],
         })
       ])
     });
   }
 
   ngOnInit(): void {
-    this.loadCountries();
+    this.loadCountries();    
+    this.toggleEdit();
   }
 
   async loadCountries(): Promise<void> {
@@ -48,6 +52,7 @@ export class TaxBracketFormComponent {
     if(!countryCode) return;
 
     this.loadBrackets(countryCode);
+    this.isEditable = false;
   }
 
   get brackets(): FormArray {
@@ -64,6 +69,8 @@ export class TaxBracketFormComponent {
         re.brackets.forEach(b => {
           this.brackets.push(this.createBracketGroup(b));
         });
+
+        this.form.setControl('brackets', this.fb.array(re.brackets.map(b => this.createBracketGroup(b))));
       } else {
         this.addBracket(); // add one empty row if none exist
         alert(re.response);
@@ -74,9 +81,9 @@ export class TaxBracketFormComponent {
   private createBracketGroup(bracket?: TaxBracketDetail): FormGroup {
     return this.fb.group({
       // id: [bracket?.id || null], // optional, for updates
-      level: [bracket?.level || null, Validators.required],
-      limit: [bracket?.limit || null, Validators.required],
-      rate: [bracket?.rate || null, Validators.required]
+      level: [ {value: bracket?.level || null,  disabled: !this.isEditable }, Validators.required],
+      limit: [ {value: bracket?.limit || null, disabled: !this.isEditable }, Validators.required],
+      rate: [ {value: bracket?.rate || null, disabled: !this.isEditable }, Validators.required],
     });
   }
 
@@ -88,9 +95,21 @@ export class TaxBracketFormComponent {
     this.brackets.removeAt(index);
   }
 
+  toggleEdit() {
+    this.isEditable = !this.isEditable;
+    this.brackets.controls.forEach(control => {
+      if(this.isEditable) {
+        control.enable();
+      } else {
+        control.disable();
+      }
+    });
+  }
+
   async save() {
     if(confirm('Do you want to save the Tax Brackets?' ))
     {
+      this.isError = false;
       this.submitted = true;
       if (this.form.invalid) return;
   
@@ -101,12 +120,9 @@ export class TaxBracketFormComponent {
       
       var validationResult = await firstValueFrom( this.apiClientService.ValidateTaxBrackets(countryCode, brackets));
 
-      var errors: string = '';
       if(validationResult.success === false) {
-        validationResult.response.forEach(item => {
-          errors += item + '\n';
-        });
-        alert(errors);
+        this.isError = true;
+        this.errorMessages = validationResult.response;
         return;
       }
 

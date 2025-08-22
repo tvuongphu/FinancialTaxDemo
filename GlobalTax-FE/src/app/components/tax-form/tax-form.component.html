@@ -44,9 +44,9 @@
   <!-- Result Table -->
   <div *ngIf="taxResult" class="mt-12">
     <h3 class="text-lg font-semibold mb-2">Results</h3>
-    <p><strong>Effective Rate:</strong> {{ taxResult.effectiveRate * 100 | number:'1.1-2' }}%</p>
-    <p><strong>Total Tax:</strong> {{ taxResult.totalTax | currency: currency }}</p>
-    <p><strong>Net income:</strong> {{ income - taxResult.totalTax | currency: currency }}</p>
+    <p><strong>Effective Rate: </strong>{{ taxResult.effectiveRate * 100 | number:'1.1-2' }}%</p>
+    <p><strong>Total Tax: </strong>{{ taxResult.totalTax | number:'1.1-2' }} {{ currency }}</p>
+    <p><strong>Net income: </strong>{{ income - taxResult.totalTax | number:'1.1-2' }} {{ currency }}</p>
 
     <div class="overflow-x-auto">
       <table class="w-full border-collapse border border-gray-300 text-left">
@@ -62,8 +62,8 @@
           <tr *ngFor="let row of taxResult.breakdown">
             <td class="border p-2">{{ row.range }}</td>
             <td class="border p-2">{{ row.rate * 100 }}%</td>
-            <td class="border p-2">{{ row.taxedAmount | currency: currency }}</td>
-            <td class="border p-2">{{ row.taxOwed | currency: currency }}</td>
+            <td class="border p-2">{{ row.taxedAmount | number:'1.1-2' }}</td>
+            <td class="border p-2">{{ row.taxOwed | number:'1.1-2' }}</td>
           </tr>
         </tbody>
       </table>

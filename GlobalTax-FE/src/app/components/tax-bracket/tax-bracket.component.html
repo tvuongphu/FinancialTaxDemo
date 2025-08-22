@@ -13,6 +13,10 @@
       </select>
     </div>
 
+    <div *ngIf="isError" class="text-red-500 text-sm mt-1">
+      <div *ngFor="let error of errorMessages">{{ error }}</div>
+    </div>
+
     <!-- Brackets Table -->
     <h3 class="text-lg font-semibold mb-2">Brackets</h3>
     <div formArrayName="brackets" class="overflow-x-auto">
@@ -22,7 +26,7 @@
             <th class="border p-2">Level</th>
             <th class="border p-2">Limit</th>
             <th class="border p-2">Rate</th>
-            <th class="border p-2">Actions</th>
+            <th class="border p-2" *ngIf="isEditable">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -31,13 +35,13 @@
               <input type="number" formControlName="level" class="border rounded p-1 w-full" />
             </td>
             <td class="border p-2">
-              <input type="number" formControlName="limit" class="border rounded p-1 w-full" placeholder="null = ∞" />
+              <input type="number" formControlName="limit" class="border rounded p-1 w-full" placeholder="null - ∞" />
             </td>
             <td class="border p-2">
-              <input type="number" step="0.01" formControlName="rate" class="border rounded p-1 w-full" placeholder="0.1 = 10%" />
+              <input type="number" step="0.01" formControlName="rate" class="border rounded p-1 w-full" placeholder="0.1 - 0.99" />
             </td>
-            <td class="border p-2">
-              <button type="button" (click)="removeBracket(i)" class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">
+            <td class="border p-2" *ngIf="isEditable">
+              <button type="button" (click)="removeBracket(i)" step="0.01" class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">
                 Remove
               </button>
             </td>
@@ -49,11 +53,15 @@
     <br/>
     <!-- Add & Save Buttons -->
     <div class="mt-4 flex gap-2">
-      <button type="button" (click)="addBracket()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+      <button type="button" (click)="toggleEdit()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+        {{ isEditable ? 'Cancel' : 'Edit' }}
+      </button> 
+      &nbsp;
+      <button type="button" (click)="addBracket()" *ngIf="isEditable" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
         Add Bracket
       </button> 
       &nbsp;
-      <button type="submit" [disabled]="form.invalid" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+      <button type="submit" [disabled]="form.invalid" *ngIf="isEditable" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
         Save
       </button>
     </div>
