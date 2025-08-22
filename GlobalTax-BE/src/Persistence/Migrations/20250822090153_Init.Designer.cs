@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GlobalTax.Persistence.Migrations
 {
     [DbContext(typeof(TaxDbContext))]
-    [Migration("20250821111226_Init")]
+    [Migration("20250822090153_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -42,6 +42,11 @@ namespace GlobalTax.Persistence.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<string>("Currency")
+                        .IsRequired()
+                        .HasMaxLength(3)
+                        .HasColumnType("nvarchar(3)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Countries");
@@ -51,13 +56,36 @@ namespace GlobalTax.Persistence.Migrations
                         {
                             Id = 1,
                             CountryCode = "US",
-                            CountryName = "The United States of America"
+                            CountryName = "The United States of America",
+                            Currency = "USD"
                         },
                         new
                         {
                             Id = 2,
                             CountryCode = "VN",
-                            CountryName = "Viet Nam"
+                            CountryName = "Viet Nam",
+                            Currency = "VND"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CountryCode = "AU",
+                            CountryName = "Australia",
+                            Currency = "AUD"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CountryCode = "CA",
+                            CountryName = "Canada",
+                            Currency = "CAD"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CountryCode = "TH",
+                            CountryName = "Thailand",
+                            Currency = "THB"
                         });
                 });
 

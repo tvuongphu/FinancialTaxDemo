@@ -7,8 +7,11 @@
     <!-- Country Selector -->
     <div>
       <label class="block mb-1 font-medium">Country Code: </label>
-      <select [(ngModel)]="countryCode" name="countryCode" required class="border rounded p-2 w-full">
-        <option value="">--- Choose a country ---</option>
+      <select required class="border rounded p-2 w-full"  
+      name="countryCode"
+      [(ngModel)]="countryCode"
+      (ngModelChange)="onCountryChange($event)">
+        <option value="">Choose a country</option>
         <option *ngFor="let c of countries" [value]="c.countryCode">{{ c.countryName }}</option>
       </select>
     </div>
@@ -16,7 +19,7 @@
     <br/>
     <!-- Income Input -->
     <div>
-      <label class="block mb-1 font-medium">Income ($): </label>
+      <label class="block mb-1 font-medium">Income: </label>
       <input
         type="text"
         [ngModel]="income | number:'1.0-0'"
@@ -25,6 +28,7 @@
         required
         class="border rounded p-2 w-full"
       />
+      &nbsp; {{ currency }}
       <div *ngIf="incomeError" class="text-red-500 text-sm mt-1">
         Please enter a valid number
       </div>
@@ -40,8 +44,9 @@
   <!-- Result Table -->
   <div *ngIf="taxResult" class="mt-12">
     <h3 class="text-lg font-semibold mb-2">Results</h3>
-    <p><strong>Total Tax:</strong> {{ taxResult.totalTax | currency:'USD' }}</p>
     <p><strong>Effective Rate:</strong> {{ taxResult.effectiveRate * 100 | number:'1.1-2' }}%</p>
+    <p><strong>Total Tax:</strong> {{ taxResult.totalTax | currency: currency }}</p>
+    <p><strong>Net income:</strong> {{ income - taxResult.totalTax | currency: currency }}</p>
 
     <div class="overflow-x-auto">
       <table class="w-full border-collapse border border-gray-300 text-left">
@@ -57,8 +62,8 @@
           <tr *ngFor="let row of taxResult.breakdown">
             <td class="border p-2">{{ row.range }}</td>
             <td class="border p-2">{{ row.rate * 100 }}%</td>
-            <td class="border p-2">{{ row.taxedAmount | currency:'USD' }}</td>
-            <td class="border p-2">{{ row.taxOwed | currency:'USD' }}</td>
+            <td class="border p-2">{{ row.taxedAmount | currency: currency }}</td>
+            <td class="border p-2">{{ row.taxOwed | currency: currency }}</td>
           </tr>
         </tbody>
       </table>

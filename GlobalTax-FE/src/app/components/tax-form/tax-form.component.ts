@@ -16,6 +16,7 @@ import { firstValueFrom } from 'rxjs';
 })
 export class TaxFormComponent {
   countryCode: string = '';
+  currency: string = '';
   countries: Country[] = [];
   income: number = 0;
   incomeError: boolean = false;
@@ -38,6 +39,10 @@ export class TaxFormComponent {
     } else {
       this.taxResult = null;
     }
+  }
+
+  onCountryChange(value: string) {
+    this.currency = this.countries.find(c => c.countryCode === value)?.currency || '';
   }
 
   onIncomeChange(value: string) {

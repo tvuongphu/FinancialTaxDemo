@@ -9,7 +9,7 @@ public class CountryService(ITaxDbContext TaxDbContext) : ICountryService
     {
         try
         {
-            var countries = TaxDbContext.Countries.ToList();
+            var countries = TaxDbContext.Countries.OrderBy(s => s.CountryCode).ToList();
             return new GetCountryResponseDto(true, string.Empty, countries);
         }
         catch (Exception ex)

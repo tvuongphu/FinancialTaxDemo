@@ -1,4 +1,26 @@
 /* Container / Card */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+nav {
+  margin: 15px 0;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: 500;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+ 
+
 .tax-container, .bracket-container {
   max-width: 1200px;
   margin: 30px auto;

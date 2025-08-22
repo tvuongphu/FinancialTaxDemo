@@ -28,7 +28,7 @@ export class TaxBracketFormComponent {
           limit: [null, Validators.required],
           rate: [null, [Validators.required, Validators.min(0), Validators.max(1)]]
         })
-      ]) // dynamic list
+      ])
     });
   }
 
@@ -82,30 +82,12 @@ export class TaxBracketFormComponent {
 
   addBracket() {
     this.brackets.push(this.createBracketGroup());
-    // this.brackets.push(
-    //   this.fb.group({
-    //     level: [null, Validators.required],
-    //     limit: [null, Validators.required],
-    //     rate: [null, [Validators.required, Validators.min(0), Validators.max(1)]]
-    //   })
-    // );
   }
  
   removeBracket(index: number) {
     this.brackets.removeAt(index);
   }
 
-  // validateBracket(countryCode: string, brackets: TaxBracketDetail[]) : ValidationResponseDto {
-  //    var validationResult: ValidationResponseDto;
-
-  //    this.taxSBracketervice.ValidateTaxBrackets(countryCode, brackets).subscribe({
-  //       next: (res) => {
-  //        validationResult = res;
-  //       },
-  //       error: (err) => console.error('Error saving tax brackets', err)
-  //     });
-  // }
- 
   async save() {
     if(confirm('Do you want to save the Tax Brackets?' ))
     {
@@ -115,7 +97,6 @@ export class TaxBracketFormComponent {
       const countryCode = this.form.value.countryCode.toUpperCase();
       const brackets: TaxBracketDetail[] = this.form.value.brackets.map((b: any) => ({
         ...b
-        // countryCode
       }));
       
       var validationResult = await firstValueFrom( this.apiClientService.ValidateTaxBrackets(countryCode, brackets));
@@ -130,20 +111,10 @@ export class TaxBracketFormComponent {
       }
 
       var updateResult = await firstValueFrom(this.apiClientService.UpdateTaxBrackets(countryCode, brackets));
-       if(updateResult.success)
-          alert('Brackets saved successfully!');
+        if(updateResult.success)
+            alert('Brackets saved successfully!');
         else
           alert(updateResult.response);
-
-      // this.taxSBracketervice.UpdateTaxBrackets(countryCode, brackets).subscribe({
-      //   next: (res) => {
-      //     if(res.success)
-      //       alert('Brackets saved successfully!');
-      //     else
-      //       alert(res.response);
-      //   },
-      //   error: (err) => console.error('Error saving tax brackets', err)
-      // });
     }
   }
 }

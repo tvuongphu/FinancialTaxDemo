@@ -42,6 +42,7 @@ interface Country {
   // id: number;
   countryCode: string;
   countryName: string;
+  currency: string;
 }
 
 

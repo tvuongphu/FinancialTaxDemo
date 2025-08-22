@@ -10,6 +10,7 @@ public class CountryConfigurations : IEntityTypeConfiguration<Domain.Country>
     {
         builder.HasKey(e => e.Id);
         builder.Property(e => e.CountryCode).HasMaxLength(2);
+        builder.Property(e => e.Currency).HasMaxLength(3);
         builder.Property(e => e.CountryName).HasMaxLength(200);
 
         builder.HasData(new List<Country>
@@ -18,13 +19,36 @@ public class CountryConfigurations : IEntityTypeConfiguration<Domain.Country>
             {
                 Id = 1,
                 CountryCode = "US",
-                CountryName = "The United States of America"
+                CountryName = "The United States of America",
+                Currency = "USD"
             },
             new Country
             {
                 Id = 2,
                 CountryCode = "VN",
-                CountryName = "Viet Nam"
+                CountryName = "Viet Nam",
+                Currency = "VND"
+            },
+            new Country
+            {
+                Id = 3,
+                CountryCode = "AU",
+                CountryName = "Australia",
+                Currency = "AUD"
+            },
+            new Country
+            {
+                Id = 4,
+                CountryCode = "CA",
+                CountryName = "Canada",
+                Currency = "CAD"
+            },
+            new Country
+            {
+                Id = 5,
+                CountryCode = "TH",
+                CountryName = "Thailand",
+                Currency = "THB"
             },
         });
     }

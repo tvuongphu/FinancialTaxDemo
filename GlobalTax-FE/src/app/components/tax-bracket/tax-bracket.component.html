@@ -10,11 +10,6 @@
       <select id="countryCode" formControlName="countryCode" (change)="onCountryChange($event)" class="border rounded p-2 w-full">
         <option value="">Choose a country</option>
         <option *ngFor="let c of countries" [value]="c.countryCode">{{ c.countryName }}</option>
-
-        <!-- <option value="" disabled>Select a country</option>
-        <option value="US">United States</option>
-        <option value="CA">Canada</option>
-        <option value="VN">Viet Nam</option> -->
       </select>
     </div>
 

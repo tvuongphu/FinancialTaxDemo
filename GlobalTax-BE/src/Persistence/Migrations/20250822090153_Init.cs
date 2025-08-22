@@ -19,7 +19,8 @@ namespace GlobalTax.Persistence.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CountryCode = table.Column<string>(type: "nvarchar(2)", maxLength: 2, nullable: false),
-                    CountryName = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false)
+                    CountryName = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Currency = table.Column<string>(type: "nvarchar(3)", maxLength: 3, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -42,11 +43,14 @@ namespace GlobalTax.Persistence.Migrations
 
             migrationBuilder.InsertData(
                 table: "Countries",
-                columns: new[] { "Id", "CountryCode", "CountryName" },
+                columns: new[] { "Id", "CountryCode", "CountryName", "Currency" },
                 values: new object[,]
                 {
-                    { 1, "US", "The United States of America" },
-                    { 2, "VN", "Viet Nam" }
+                    { 1, "US", "The United States of America", "USD" },
+                    { 2, "VN", "Viet Nam", "VND" },
+                    { 3, "AU", "Australia", "AUD" },
+                    { 4, "CA", "Canada", "CAD" },
+                    { 5, "TH", "Thailand", "THB" }
                 });
 
             migrationBuilder.InsertData(
