@@ -128,7 +128,11 @@ export class TaxBracketFormComponent {
 
       var updateResult = await firstValueFrom(this.apiClientService.UpdateTaxBrackets(countryCode, brackets));
         if(updateResult.success)
-            alert('Brackets saved successfully!');
+        {
+          this.isEditable = true;
+          this.toggleEdit();
+          alert('Brackets saved successfully!');
+        }
         else
           alert(updateResult.response);
     }
